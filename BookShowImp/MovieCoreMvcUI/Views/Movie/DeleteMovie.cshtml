@@ -1,26 +1,26 @@
-﻿@model BookMyShowEntity.Location;
+﻿@model BookMyShowEntity.Movie
 
 
 @{
-    ViewData["Title"] = "LocationEntry";
+    ViewData["Title"] = "DeleteMovie";
 }
 
+
 <div>
-    <a asp-controller="Location" asp-action="Index">Back to Index</a>
-    <center><h1>Welcome to Location Entry</h1></center>
+    <a asp-controller="Movie" asp-action="Index">Back to Index</a>
+    <center><h1>Welcome to Movie Delete Section</h1></center>
     <hr />
 </div>
 
-
 <form method="post" enctype="multipart/form-data">
-   
+
     <div class="form-group">
-        <label>Location Name</label>
-        <input type="text" asp-for="LocationName" class="form-control" placeholder="Enter Location Name" required />
+        <label>Movie ID</label>
+        <input type="text" asp-for="MovieId" class="form-control" placeholder="Enter Movie ID" required disabled />
 
     </div>
-    
-    <input type="submit" value="Save" class="btn btn-outline-success" />
+
+    <input type="submit" value="Delete" class="btn btn-outline-success" />
     <input type="button" value="Reset" class="btn btn-outline-secondary" />
     <hr />
     @if (ViewBag.status == "Ok")
@@ -38,4 +38,3 @@
 
 
 </form>
-
