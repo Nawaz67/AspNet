@@ -19,34 +19,49 @@ namespace BookMyShowData.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.0");
 
-            modelBuilder.Entity("BookMyShowData.ShowTimingDAL", b =>
+            modelBuilder.Entity("BookMyShowEntity.Booking", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("BookingId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int>("MovieId")
+                    b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("ShowTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("TheatreId")
+                    b.Property<int>("ShowId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
-                    b.HasIndex("MovieId");
+                    b.HasKey("BookingId");
 
-                    b.HasIndex("TheatreId");
+                    b.HasIndex("ShowId");
 
-                    b.ToTable("showTimings");
+                    b.HasIndex("UserId");
+
+                    b.ToTable("bookings");
+                });
+
+            modelBuilder.Entity("BookMyShowEntity.Location", b =>
+                {
+                    b.Property<int>("LocationId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("LocationName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("LocationId");
+
+                    b.ToTable("locations");
                 });
 
             modelBuilder.Entity("BookMyShowEntity.Movie", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("MovieId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
@@ -60,14 +75,39 @@ namespace BookMyShowData.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("MovieId");
 
                     b.ToTable("movies");
                 });
 
+            modelBuilder.Entity("BookMyShowEntity.ShowTiming", b =>
+                {
+                    b.Property<int>("ShowId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("MovieId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ShowTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("TheatreId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ShowId");
+
+                    b.HasIndex("MovieId");
+
+                    b.HasIndex("TheatreId");
+
+                    b.ToTable("showTimings");
+                });
+
             modelBuilder.Entity("BookMyShowEntity.Theatre", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("TheatreId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
@@ -78,15 +118,60 @@ namespace BookMyShowData.Migrations
                     b.Property<string>("Comments")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("LocationId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("TheatreId");
+
+                    b.HasIndex("LocationId");
 
                     b.ToTable("theatres");
                 });
 
-            modelBuilder.Entity("BookMyShowData.ShowTimingDAL", b =>
+            modelBuilder.Entity("BookMyShowEntity.User", b =>
+                {
+                    b.Property<int>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Phone")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("users");
+                });
+
+            modelBuilder.Entity("BookMyShowEntity.Booking", b =>
+                {
+                    b.HasOne("BookMyShowEntity.ShowTiming", "ShowTiming")
+                        .WithMany()
+                        .HasForeignKey("ShowId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BookMyShowEntity.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ShowTiming");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("BookMyShowEntity.ShowTiming", b =>
                 {
                     b.HasOne("BookMyShowEntity.Movie", "Movie")
                         .WithMany()
@@ -103,6 +188,17 @@ namespace BookMyShowData.Migrations
                     b.Navigation("Movie");
 
                     b.Navigation("Theatre");
+                });
+
+            modelBuilder.Entity("BookMyShowEntity.Theatre", b =>
+                {
+                    b.HasOne("BookMyShowEntity.Location", "Location")
+                        .WithMany()
+                        .HasForeignKey("LocationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Location");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,0 +1,45 @@
+﻿@model BookMyShowEntity.User;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Book My Show</h1>
+    <hr/>
+    @*<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
+</div>
+<div>
+<form method="post" enctype="multipart/form-data">
+    <h4>User Authentication</h4>
+    <hr />
+    <div class="form-group">
+        <label>User Email</label>
+        <input type="text" asp-for="Email" class="form-control" placeholder="Enter User Email" required />
+
+    </div>
+    <div class="form-group">
+        <label>User Password</label>
+        <input type="text" asp-for="Phone" class="form-control" placeholder="Enter User Password as phone no" required />
+
+    </div>
+
+    <input type="submit" value="Login" class="btn btn-outline-success" />
+    <input type="button" value="Reset" class="btn btn-outline-secondary" />
+    <hr />
+    @if (ViewBag.status == "Ok")
+    {
+        <div class="alert alert-success">
+            @ViewBag.message
+        </div>
+    }
+    else if (ViewBag.status == "Error")
+    {
+        <div class="alert alert-danger">
+            @ViewBag.message
+        </div>
+    }
+
+
+</form>
+</div>

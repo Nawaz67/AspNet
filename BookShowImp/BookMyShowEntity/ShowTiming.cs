@@ -10,7 +10,7 @@ namespace BookMyShowEntity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int ShowId { get; set; }
 
         [ForeignKey("Movie")]
         public int MovieId { get; set; }

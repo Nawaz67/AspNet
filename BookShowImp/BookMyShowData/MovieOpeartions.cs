@@ -59,7 +59,7 @@ namespace BookMyShowData
                          orderby movies.Name
                          select new Movie
                          {
-                             Id = movies.Id,
+                             MovieId = movies.MovieId,
                              Name = movies.Name,
                              MovieDesc = movies.MovieDesc,
                              MovieType = type,
@@ -89,7 +89,7 @@ namespace BookMyShowData
                          orderby movies.Name
                          select new Movie
                          {
-                             Id = movies.Id,
+                             MovieId = movies.MovieId,
                              Name = movieName,
                              MovieDesc = movies.MovieDesc,
                              MovieType = movies.MovieType,

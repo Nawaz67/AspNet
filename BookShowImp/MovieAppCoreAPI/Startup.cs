@@ -42,6 +42,13 @@ namespace MovieAppCoreAPI
                     Description = "Movie Management System API",
                 });
             });
+            
+            services.AddTransient<UserServices, UserServices>();
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<LocationService, LocationService>();  
+            services.AddTransient<ILocationRepository, LocationRepository>();
+            services.AddTransient<BookingService, BookingService>();    
+            services.AddTransient<IBookingRepository, BookingRepository>();
             services.AddTransient<MovieService, MovieService>();
             services.AddTransient<IMovieRepository, MovieRepository>();
             services.AddTransient<TheatreService, TheatreService>();
@@ -62,6 +69,7 @@ namespace MovieAppCoreAPI
             app.UseSwagger();
             app.UseSwaggerUI(options =>
             options.SwaggerEndpoint("/swagger/v1/swagger.json", "Movie API"));
+           
 
             app.UseRouting(); //URL will get validate 
 

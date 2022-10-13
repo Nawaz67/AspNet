@@ -1,0 +1,41 @@
+﻿@model BookMyShowEntity.Location;
+
+
+@{
+    ViewData["Title"] = "LocationEntry";
+}
+
+<div>
+    <a asp-controller="Location" asp-action="Index">Location Entry</a>
+    <center><h1>Welcome to Location Entry</h1></center>
+    <hr />
+</div>
+
+
+<form method="post" enctype="multipart/form-data">
+   
+    <div class="form-group">
+        <label>Location Name</label>
+        <input type="text" asp-for="LocationName" class="form-control" placeholder="Enter Location Name" required />
+
+    </div>
+    
+    <input type="submit" value="Save" class="btn btn-outline-success" />
+    <input type="button" value="Reset" class="btn btn-outline-secondary" />
+    <hr />
+    @if (ViewBag.status == "Ok")
+    {
+        <div class="alert alert-success">
+            @ViewBag.message
+        </div>
+    }
+    else if (ViewBag.status == "Error")
+    {
+        <div class="alert alert-danger">
+            @ViewBag.message
+        </div>
+    }
+
+
+</form>
+

@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookMyShowBusiness", "BookM
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookMyShowPresentation", "BookMyShowPresentation\BookMyShowPresentation.csproj", "{4A6E64EC-F841-4B5D-AAC5-886DB5A99380}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieAppCoreAPI", "MovieAppCoreAPI\MovieAppCoreAPI.csproj", "{FB6235F8-77AB-405C-A1F6-6F0D3FE2B4EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieAppCoreAPI", "MovieAppCoreAPI\MovieAppCoreAPI.csproj", "{FB6235F8-77AB-405C-A1F6-6F0D3FE2B4EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieCoreMvcUI", "MovieCoreMvcUI\MovieCoreMvcUI.csproj", "{2F25F929-4E0E-448D-8628-F92CAE017692}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{FB6235F8-77AB-405C-A1F6-6F0D3FE2B4EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB6235F8-77AB-405C-A1F6-6F0D3FE2B4EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB6235F8-77AB-405C-A1F6-6F0D3FE2B4EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F25F929-4E0E-448D-8628-F92CAE017692}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F25F929-4E0E-448D-8628-F92CAE017692}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F25F929-4E0E-448D-8628-F92CAE017692}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F25F929-4E0E-448D-8628-F92CAE017692}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

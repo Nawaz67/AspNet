@@ -10,9 +10,13 @@ namespace BookMyShowEntity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int TheatreId { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
         public string Comments { get; set; }
+
+        [ForeignKey("Location")]
+        public int LocationId { get; set; }
+        public Location Location { get; set; }
     }
 }
