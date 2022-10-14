@@ -10,7 +10,7 @@ namespace BookMyShowData.Repository
         void AddTheatre(Theatre theatre);
         void UpdateTheatre(Theatre theatre);
         void DeleteTheatre(int theatreId);
-        Movie GetTheatreById(int theatreId);
+        Theatre GetTheatreById(int theatreId);
         IEnumerable<Theatre> GetTheatres();
     }
 }

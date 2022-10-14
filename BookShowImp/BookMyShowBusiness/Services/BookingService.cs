@@ -26,9 +26,9 @@ namespace BookMyShowBusiness.Services
         {
             _bookingRepository.UpdateBooking(booking);
         }
-        public void BookingById(int bookingId)
+        public Booking BookingById(int bookingId)
         {
-            _bookingRepository.GetBookingById(bookingId);
+           return _bookingRepository.GetBookingById(bookingId);
         }
         public IEnumerable<Booking> GetBookings()
         {

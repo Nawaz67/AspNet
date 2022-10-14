@@ -29,5 +29,10 @@ namespace BookMyShowBusiness.Services
         {
             return _showTiming.GetAllShowTiming();
         }
+
+        public ShowTiming GetShowTimingById(int showId)
+        {
+            return _showTiming.GetShowTimingById(showId);
+        }
     }
 }

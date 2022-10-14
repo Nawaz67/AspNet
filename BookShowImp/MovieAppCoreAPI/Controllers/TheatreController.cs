@@ -42,10 +42,12 @@ namespace MovieAppCoreAPI.Controllers
             _theatreService.UpdateTheatre(theatre);
             return Ok("Theatre Updated Successfully");
         }
-       /* public IActionResult GetTheatreByID(int theatreId)
+
+        [HttpGet("GetTheatreById")]
+        public Theatre GetTheatreById(int theatreId)
         {
-            _theatreService.GetTheatreById(theatreId);
-            return Ok("Theatre By Id searched successfully");
-        }*/
+            return _theatreService.GetTheatreById(theatreId);
+            
+        }
     }
 }

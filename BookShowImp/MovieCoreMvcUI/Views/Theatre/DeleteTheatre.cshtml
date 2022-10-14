@@ -1,22 +1,21 @@
-﻿@model BookMyShowEntity.Movie
+﻿@model BookMyShowEntity.Theatre;
 
 
 @{
-    ViewData["Title"] = "DeleteMovie";
+    ViewData["Title"] = "DeleteTheatre";
 }
 
-
 <div>
-    <a asp-controller="Movie" asp-action="Index">Back to Index</a>
-    <center><h1>Welcome to Movie Delete Section</h1></center>
+    <a asp-controller="Theatre" asp-action="Index">Back to Index</a>
+    <center><h1>Welcome to Theatre Delete Section</h1></center>
     <hr />
 </div>
 
 <form method="post" enctype="multipart/form-data">
 
     <div class="form-group">
-        <label>Movie ID</label>
-        <input type="text" asp-for="MovieId" class="form-control" placeholder="Movie ID" required disabled />
+        <label>Theatre ID</label>
+        <input type="text" asp-for="TheatreId" class="form-control" placeholder="Theatre ID" required disabled />
 
     </div>
 
@@ -38,3 +37,5 @@
 
 
 </form>
+
+

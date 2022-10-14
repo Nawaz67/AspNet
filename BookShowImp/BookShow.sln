@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookMyShowPresentation", "B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieAppCoreAPI", "MovieAppCoreAPI\MovieAppCoreAPI.csproj", "{FB6235F8-77AB-405C-A1F6-6F0D3FE2B4EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieCoreMvcUI", "MovieCoreMvcUI\MovieCoreMvcUI.csproj", "{2F25F929-4E0E-448D-8628-F92CAE017692}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieCoreMvcUI", "MovieCoreMvcUI\MovieCoreMvcUI.csproj", "{2F25F929-4E0E-448D-8628-F92CAE017692}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

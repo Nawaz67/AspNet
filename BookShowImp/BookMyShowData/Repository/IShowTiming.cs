@@ -10,6 +10,7 @@ namespace BookMyShowData.Repository
         void AddShowTiming(ShowTiming showTiming);
         void UpdateShowTiming(ShowTiming showTiming);
         void DeleteShowTiming(int showId);
+        ShowTiming GetShowTimingById(int showId);
         IEnumerable<ShowTiming> GetAllShowTiming();
 
     }

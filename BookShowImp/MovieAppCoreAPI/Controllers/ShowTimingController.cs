@@ -42,5 +42,12 @@ namespace MovieAppCoreAPI.Controllers
             _showTimingService.UpdateShowTiming(showTiming);
             return Ok("Updated Successfully");
         }
+
+        [HttpGet("GetShowTimingById")]
+        public ShowTiming GetShowTimingById(int showId)
+        {
+            return _showTimingService.GetShowTimingById(showId);
+        }
+
     }
 }

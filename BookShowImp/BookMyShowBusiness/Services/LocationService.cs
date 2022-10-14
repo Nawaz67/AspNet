@@ -25,6 +25,10 @@ namespace BookMyShowBusiness.Services
         {
             _locationRepository.UpdateLocation(location);
         }
+        public Location GetLocationById(int locationId)
+        {
+            return _locationRepository.GetLocationById(locationId);
+        }
         public IEnumerable<Location> GetLocations()
         {
             return _locationRepository.GetLocations();

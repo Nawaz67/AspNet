@@ -1,0 +1,54 @@
+﻿@model BookMyShowEntity.Booking;
+
+
+@{
+    ViewData["Title"] = "EditBooking";
+}
+
+
+<div>
+    <a asp-controller="Booking" asp-action="Index">Back to Index</a>
+    <center><h1>Welcome to Booking Edit Section</h1></center>
+    <hr />
+</div>
+
+<form method="post" enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label>Booking ID</label>
+        <input type="text" asp-for="BookingId" class="form-control" placeholder="Enter Booking ID" required disabled />
+
+    </div>
+    <div class="form-group">
+        <label>Quantity</label>
+        <input type="text" asp-for="Quantity" class="form-control" placeholder="Enter Quantity" required />
+
+    </div>
+    <div class="form-group">
+        <label>User ID</label>
+        <input type="text" asp-for="UserId" class="form-control" placeholder="Enter User ID" required />
+
+    </div>
+    <div class="form-group">
+        <label>Show ID</label>
+        <input type="text" asp-for="ShowId" class="form-control" placeholder="Enter Show ID" required />
+
+    </div>
+    <input type="submit" value="Update" class="btn btn-outline-success" />
+    <input type="button" value="Reset" class="btn btn-outline-secondary" />
+    <hr />
+    @if (ViewBag.status == "Ok")
+    {
+        <div class="alert alert-success">
+            @ViewBag.message
+        </div>
+    }
+    else if (ViewBag.status == "Error")
+    {
+        <div class="alert alert-danger">
+            @ViewBag.message
+        </div>
+    }
+
+
+</form>

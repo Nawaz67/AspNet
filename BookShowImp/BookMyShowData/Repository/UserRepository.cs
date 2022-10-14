@@ -38,5 +38,10 @@ namespace BookMyShowData.Repository
             _movieDbContext.Entry(user).State = EntityState.Modified;
             _movieDbContext.SaveChanges();
         }
+
+        public User GetUserById(int userId)
+        {
+            return _movieDbContext.users.Find(userId);
+        }
     }
 }

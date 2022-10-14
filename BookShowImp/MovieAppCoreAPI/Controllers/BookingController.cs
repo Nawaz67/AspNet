@@ -41,6 +41,11 @@ namespace MovieAppCoreAPI.Controllers
             _bookingService.UpdateBooking(booking);
             return Ok("Booking Updated Successfully");
         }
+        [HttpGet("GetBookingById")]
+        public Booking GetBookingById(int bookingId)
+        {
+            return _bookingService.BookingById(bookingId);
+        }
 
     }
 }

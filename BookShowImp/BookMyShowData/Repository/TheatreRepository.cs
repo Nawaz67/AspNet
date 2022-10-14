@@ -41,9 +41,6 @@ namespace BookMyShowData.Repository
             _movieDbContext.SaveChanges();
         }
 
-        Movie ITheatreRepository.GetTheatreById(int theatreId)
-        {
-            throw new NotImplementedException();
-        }
+      
     }
 }

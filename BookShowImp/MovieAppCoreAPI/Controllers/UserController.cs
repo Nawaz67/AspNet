@@ -38,5 +38,11 @@ namespace MovieAppCoreAPI.Controllers
             _userServices.UpdateUser(user);
             return Ok("User Updated Successfully");
         }
+
+        [HttpGet("GetUserById")]
+        public User GetUserById(int userId)
+        {
+            return _userServices.UserById(userId);
+        }
     }
 }

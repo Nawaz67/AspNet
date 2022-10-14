@@ -1,4 +1,6 @@
-﻿
+﻿@model IEnumerable<BookMyShowEntity.User>;
+
+
 @{
     ViewData["Title"] = "Index";
 }
@@ -9,3 +11,36 @@
     <hr />
 </div>
 
+<div class="row">
+    <div class="col-12">
+        <center><h3 style="color:chartreuse">User Entries</h3></center>
+        <hr />
+        <table class="table table-light table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>User Id</th>
+                    <th>User Name</th>
+                    <th>User Email</th>
+                    <th>User Phone</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.UserId</td>
+                        <td>@user.UserName</td>
+                        <td>@user.Email</td>
+                        <td>@user.Phone</td>
+                        <td><a asp-controller="User" asp-action="EditUser" asp-route-UserId="@user.UserId">Edit</a></td>
+                        <td><a asp-controller="User" asp-action="DeleteUser" asp-route-UserId="@user.UserId">Delete</a></td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+
+</div>

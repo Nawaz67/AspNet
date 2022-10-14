@@ -1,4 +1,6 @@
-﻿
+﻿@model IEnumerable<BookMyShowEntity.ShowTiming>;
+
+
 @{
     ViewData["Title"] = "Index";
 }
@@ -9,4 +11,38 @@
     <hr />
 </div>
 
+<div class="row">
+    <div class="col-12">
+        <center><h3 style="color:chartreuse">Show Timing Entries</h3></center>
+        <hr />
+        <table class="table table-light table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Show Id</th>
+                    <th>Movie Id</th>
+                    <th>Movie Name</th>
+                    <th>Theatre Id</th>
+                    <th>Show Time</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var showTiming in Model)
+                {
+                    <tr>
+                        <td>@showTiming.ShowId</td>
+                        <td>@showTiming.MovieId</td>
+                        <td>@showTiming.Movie.Name</td>
+                        <td>@showTiming.TheatreId</td>
+                        <td>@showTiming.ShowTime</td>
+                        <td><a asp-controller="ShowTiming" asp-action="EditShowTiming" asp-route-ShowId="@showTiming.ShowId">Edit</a></td>
+                        <td><a asp-controller="ShowTiming" asp-action="DeleteShowTiming" asp-route-ShowId="@showTiming.ShowId">Delete</a></td>
+                    </tr>
+                }
+            </tbody>
 
+        </table>
+    </div>
+
+</div>

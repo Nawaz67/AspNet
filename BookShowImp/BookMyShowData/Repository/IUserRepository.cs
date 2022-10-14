@@ -10,6 +10,7 @@ namespace BookMyShowData.Repository
         void AddUser(User user);
         void UpdateUser(User user);
         void DeleteUser(int userId);
+        User GetUserById(int userId);
         IEnumerable<User> GetUsers();
     }
 }

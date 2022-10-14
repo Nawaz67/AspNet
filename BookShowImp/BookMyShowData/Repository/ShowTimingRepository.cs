@@ -29,7 +29,7 @@ namespace BookMyShowData.Repository
 
         public IEnumerable<ShowTiming> GetAllShowTiming()
         {
-            return _movieDbContext.showTimings.ToList();
+            return _movieDbContext.showTimings.Include(obj=>obj.Movie).ToList();
         }
 
         public void UpdateShowTiming(ShowTiming showTiming)
@@ -37,6 +37,10 @@ namespace BookMyShowData.Repository
             _movieDbContext.Entry(showTiming).State = EntityState.Modified;
             _movieDbContext.SaveChanges();
 
+        }
+        public ShowTiming GetShowTimingById(int showId)
+        {
+            return _movieDbContext.showTimings.Find(showId);
         }
     }
 }

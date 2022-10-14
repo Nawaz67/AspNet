@@ -41,5 +41,10 @@ namespace MovieAppCoreAPI.Controllers
             _locationService.UpdateLocation(location);
             return Ok("Location Updated Successfully");
         }
+        [HttpGet("GetLocationById")]
+        public Location GetLocationById(int locationId)
+        {
+            return _locationService.GetLocationById(locationId);
+        }
     }
 }

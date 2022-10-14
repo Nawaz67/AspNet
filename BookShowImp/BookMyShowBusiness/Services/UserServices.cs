@@ -29,5 +29,9 @@ namespace BookMyShowBusiness.Services
         {
             return _userRepository.GetUsers();
         }
+        public User UserById(int userId)
+        {
+            return _userRepository.GetUserById(userId);
+        }
     }
 }
