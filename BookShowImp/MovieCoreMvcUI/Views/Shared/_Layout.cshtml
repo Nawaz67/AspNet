@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@*@{
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}*@
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -21,7 +26,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
+                       @* <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Movie" asp-action="Index">Movie</a>
                         </li>
                         <li class="nav-item">
@@ -29,21 +34,32 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Location" asp-action="Index">Location</a>
-                        </li>
+                        </li>*@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="ShowTiming" asp-action="Index">ShowTiming</a>
                         </li>
-                        <li class="nav-item">
+                      @*  <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">User</a>
-                        </li>
+                        </li>*@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Booking" asp-action="Index">Booking</a>
                         </li>
+                        @*<li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Register">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Login">Login</a>
+                        </li>*@
                     </ul>
                 </div>
+                <ul class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Logout">Logout</a>
+                </ul>
             </div>
+
         </nav>
     </header>
+   
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

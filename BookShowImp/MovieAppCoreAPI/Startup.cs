@@ -109,9 +109,12 @@ namespace MovieAppCoreAPI
             app.UseSwagger();
             app.UseSwaggerUI(options =>
             options.SwaggerEndpoint("/swagger/v1/swagger.json", "Movie API"));
-           
+
+            app.UseHttpsRedirection();
 
             app.UseRouting(); //URL will get validate 
+
+            app.UseAuthentication();
 
             app.UseAuthorization(); // Role validation
 

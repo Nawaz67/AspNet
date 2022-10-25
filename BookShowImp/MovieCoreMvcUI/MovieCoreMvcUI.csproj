@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BookMyShowData\BookMyShowData.csproj" />
     <ProjectReference Include="..\BookMyShowEntity\BookMyShowEntity.csproj" />
   </ItemGroup>
 

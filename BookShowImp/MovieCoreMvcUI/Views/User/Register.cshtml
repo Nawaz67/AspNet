@@ -1,0 +1,87 @@
+﻿@model BookMyShowEntity.User;
+
+
+
+@{
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+
+<div>
+    <a asp-controller="Home" asp-action="Index">Back to Index</a>
+    
+    <hr />
+</div>
+
+<!-- Section: Design Block -->
+<section class="">
+    <!-- Jumbotron -->
+    <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: hsl(0, 0%, 96%)">
+        <center><h1 style="font-family:Algerian; padding-top:50px;">Welcome to User Register Section</h1></center>
+        <div class="container">
+            <div class="row gx-lg-5 align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h1 class="my-5 display-3 fw-bold ls-tight" style="font-family:Algerian;">
+                        Welcome to <br />book<span style="color:red;">My</span>show
+                    </h1>
+                    <p style="color: hsl(217, 10%, 50.8%)">
+                        Hello this is your Sign up page.
+                    </p>
+                </div>
+
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="card">
+                        <div class="card-body py-5 px-md-5">
+                            
+                                <!-- 2 column grid layout with text inputs for the first and last names -->
+                                <form method="post">
+                                    <div class="form-group">
+                                        <label for="UserName">User Name</label>
+                                        <input type="text" class="form-control" asp-for="UserName" placeholder="Enter User name" required/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="UserName">Email Adress</label>
+                                        <input type="text" class="form-control" asp-for="Email" placeholder="Enter Email address" required />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="UserName">Password</label>
+                                        <input type="text" class="form-control" asp-for="Password" placeholder="Enter Password" required />
+                                    </div>
+                                @*<div class="form-group">
+                                    <label for="UserName">Role</label>
+                                    <input type="text" class="form-control" asp-for="Role" placeholder="Enter Role" required />
+                                </div>*@
+                                    
+                                    <input type="submit" class="btn btn-primary" value="Sign up">
+                                    <button type="button" class="btn btn-secondary">Reset</button>
+                                    <hr />
+                                    @if (ViewBag.status == "Ok")
+                                    {
+                                        <div class="alert alert-success">
+                                            @ViewBag.message
+                                        </div>
+                                    }
+                                    else if (ViewBag.status == "Error")
+                                    {
+                                        <div class="alert alert-danger">
+                                            @ViewBag.message
+                                        </div>
+                                    }
+                                    <hr />
+                                    <a asp-controller="User" asp-action="Login">Sign in</a>
+                                </form>
+                                
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Jumbotron -->
+</section>
+<!-- Section: Design Block -->
+
+

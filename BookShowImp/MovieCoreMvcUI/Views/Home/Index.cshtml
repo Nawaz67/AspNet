@@ -1,46 +1,48 @@
-﻿@model BookMyShowEntity.User;
+﻿
+@model IEnumerable<BookMyShowEntity.Movie>
+
 
 @{
-    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
+<center>
 <div class="text-center">
-    <h1 class="display-4">Welcome to book<span style="color:red">My</span>show</h1>
+        <h1 class="display-4" style="font-family:Algerian;">Welcome to book<span style="color:red">My</span>show</h1>
     <hr/>
-    <input type="search" value="Search" style="width:500px"/>
+    <input type="search" value="Search for Cities" style="width:500px"/>
     <input type="button" value="Search" style="color:green"/>
+    <hr/>
 </div>
-<div>
-<form method="post" enctype="multipart/form-data">
-    <h4>User Authentication</h4>
-    <hr />
-    <div class="form-group">
-        <label>User Email</label>
-        <input type="text" asp-for="Email" class="form-control" placeholder="Enter User Email" required />
 
-    </div>
-    <div class="form-group">
-        <label>User Password</label>
-        <input type="text" asp-for="Phone" class="form-control" placeholder="Enter User Password as phone no" required />
+@*<div class="container-fluid">
+    <img src="~/img/book.jfif" style="width:1000px; height:500px; padding-top:50px;" />
+</div>*@
+</center>
 
-    </div>
 
-    <input type="submit" value="Login" class="btn btn-outline-success" />
-    <input type="button" value="Reset" class="btn btn-outline-secondary" />
-    <hr />
-    @if (ViewBag.status == "Ok")
-    {
-        <div class="alert alert-success">
-            @ViewBag.message
+<div class="row" style="padding-top:10px">
+    
+ @foreach (var movie in Model)
+                {
+        string imageBase64Data =
+        Convert.ToBase64String(movie.ImgPoster);
+        string imageDataURL =
+        string.Format("data:image/jpg;base64,{0}",
+        imageBase64Data);
+        <div class="col-4">
+        <div class="card" style="width: 18rem;">
+            <img height="350" width="287" src="@imageDataURL" />
+            <div class="card-body">
+                <h5 class="card-title">@movie.Name</h5>
+                <h5 class="card-title">@movie.MovieLanguage</h5>
+                <p class="card-text">@movie.MovieDesc</p>
+                <a class="btn btn-primary" asp-action="Index" asp-controller="Booking">Book</a>
+                
+            </div>
         </div>
-    }
-    else if (ViewBag.status == "Error")
-    {
-        <div class="alert alert-danger">
-            @ViewBag.message
         </div>
-    }
 
-
-</form>
+                }
+   
 </div>

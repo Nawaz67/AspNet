@@ -43,5 +43,21 @@ namespace BookMyShowData.Repository
         {
             return _movieDbContext.users.Find(userId);
         }
+        public User Login(User user)
+        {
+            User user1=null;
+            var result=_movieDbContext.users.Where(obj => obj.Email == user.Email && obj.Phone == user.Phone).ToList();
+            if (result.Count > 0)
+            {
+                user1 = result[0];
+            }
+            return user1;
+        }
+
+        public void Register(User user)
+        {
+            _movieDbContext.users.Add(user);
+            _movieDbContext.SaveChanges();
+        }
     }
 }

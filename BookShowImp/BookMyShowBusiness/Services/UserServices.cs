@@ -33,5 +33,13 @@ namespace BookMyShowBusiness.Services
         {
             return _userRepository.GetUserById(userId);
         }
+        public void Register(User user)
+        {
+            _userRepository.Register(user);
+        }
+        public User Login(User user)
+        {
+            return _userRepository.Login(user);
+        }
     }
 }

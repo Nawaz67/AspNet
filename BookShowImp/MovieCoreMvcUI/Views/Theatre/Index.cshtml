@@ -5,14 +5,21 @@
     ViewData["Title"] = "Index";
 }
 
+
 <div>
     <a asp-controller="Theatre" asp-action="TheatreEntry">Click here for theatre Entry</a>
     <hr />
+    <center>
+    <input type="search" value="Search for theatres" style="width:500px" />
+    <input type="button" value="Search" style="color:green" />
+    <hr />
+    </center>
 </div>
+
 
 <div class="row">
     <div class="col-12">
-        <center><h3 style="color:chartreuse">Theatre Entries</h3></center>
+        <center><h3 style="color:red;font-family:Algerian;">Theatre Entries</h3></center>
         <hr />
         <table class="table table-light table-bordered table-hover">
             <thead>

@@ -12,5 +12,7 @@ namespace BookMyShowData.Repository
         void DeleteUser(int userId);
         User GetUserById(int userId);
         IEnumerable<User> GetUsers();
+        void Register(User user);
+        User Login(User user);
     }
 }

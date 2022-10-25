@@ -7,7 +7,7 @@
 
 <div>
     <a asp-controller="Movie" asp-action="Index">Back to Index</a>
-    <center><h1>Welcome to Movie Edit Section</h1></center>
+    <center><h1 style="font-family:Algerian;">Welcome to Movie Edit Section</h1></center>
     <hr />
 </div>
 
@@ -32,6 +32,14 @@
         <label>Movie Type</label>
         <input type="text" asp-for="MovieType" class="form-control" placeholder="Enter Movie Type" required />
 
+    </div>
+    <div class="form-group">
+        <label>Movie Language</label>
+        <select asp-for="MovieLanguage" asp-items="@ViewBag.languagelist"></select>
+    </div>
+    <div class="form-group">
+        <label>Movie Poster</label>
+        <input type="file" id="poster" name="poster" class="form-control" required />
     </div>
     <input type="submit" value="Update" class="btn btn-outline-success" />
     <input type="button" value="Reset" class="btn btn-outline-secondary" />

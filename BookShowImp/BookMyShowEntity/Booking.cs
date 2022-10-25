@@ -20,6 +20,7 @@ namespace BookMyShowEntity
         [ForeignKey("ShowTiming")]
         public int ShowId { get; set; }
         public ShowTiming ShowTiming { get; set; }
+        
 
 
     }

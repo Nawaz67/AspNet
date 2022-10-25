@@ -9,7 +9,7 @@
 
 <div>
     <a asp-controller="User" asp-action="Index">Back to Index</a>
-    <center><h1>Welcome to User Edit Section</h1></center>
+    <center><h1 style="font-family:Algerian;">Welcome to User Edit Section</h1></center>
     <hr />
 </div>
 
@@ -26,15 +26,25 @@
 
     </div>
     <div class="form-group">
+        <label>User Phone</label>
+        <input type="text" asp-for="Phone" class="form-control" placeholder="Enter User Phone" required />
+
+    </div>
+    <div class="form-group">
         <label>User Email</label>
         <input type="text" asp-for="Email" class="form-control" placeholder="Enter User Email" required />
 
     </div>
     <div class="form-group">
-        <label>User Phone</label>
-        <input type="text" asp-for="Phone" class="form-control" placeholder="Enter User Phone" required />
+        <label>User Password</label>
+        <input type="text" asp-for="Password" class="form-control" placeholder="Enter User Password" required />
 
     </div>
+    @*<div class="form-group">
+        <label>Role</label>
+        <input type="text" asp-for="Role" class="form-control" placeholder="Enter Role" required />
+
+    </div>*@
     <input type="submit" value="Update" class="btn btn-outline-success" />
     <input type="button" value="Reset" class="btn btn-outline-secondary" />
     <hr />

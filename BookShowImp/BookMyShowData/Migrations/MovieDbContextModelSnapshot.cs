@@ -66,13 +66,22 @@ namespace BookMyShowData.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<byte[]>("ImgPoster")
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<string>("MovieDesc")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MovieLanguage")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MovieType")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("MovieId");
@@ -139,6 +148,10 @@ namespace BookMyShowData.Migrations
                         .UseIdentityColumn();
 
                     b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Phone")

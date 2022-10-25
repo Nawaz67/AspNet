@@ -8,19 +8,25 @@
 <div>
     <a asp-controller="Booking" asp-action="BookingEntry">Click here for booking Entry</a>
     <hr />
+    <center>
+        <input type="search" value="Search for Bookings" style="width:500px" />
+        <input type="button" value="Search" style="color:green" />
+    </center>
+    <hr />
 </div>
 
 <div class="row">
     <div class="col-12">
-        <center><h3 style="color:chartreuse">Booking Entries</h3></center>
+        <center><h3 style="color:red; font-family:Algerian;">Booking Entries</h3></center>
         <hr />
-        <table class="table table-light table-bordered table-hover">
+        <table class="table table-light table-bordered table-hover" style="background-color:aqua">
             <thead>
                 <tr>
                     <th>Booking Id</th>
                     <th>Quantity</th>
                     <th>User ID</th>
                     <th>Show ID</th>
+                    
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
@@ -33,6 +39,7 @@
                         <td>@booking.Quantity</td>
                         <td>@booking.UserId</td>
                         <td>@booking.ShowId</td>
+                        
                         <td><a asp-controller="Booking" asp-action="EditBooking" asp-route-BookingId="@booking.BookingId">Edit</a></td>
                         <td><a asp-controller="Booking" asp-action="DeleteBooking" asp-route-BookingId="@booking.BookingId">Delete</a></td>
                     </tr>

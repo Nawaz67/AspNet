@@ -9,19 +9,27 @@
 <div>
     <a asp-controller="User" asp-action="UserEntry">Click here for user Entry</a>
     <hr />
+    <center>
+    <input type="search" value="Search for Users" style="width:500px" />
+    <input type="button" value="Search" style="color:green" />
+    <hr />
+    </center>
 </div>
+
 
 <div class="row">
     <div class="col-12">
-        <center><h3 style="color:chartreuse">User Entries</h3></center>
+        <center><h3 style="color:red;font-family:Algerian;">User Entries</h3></center>
         <hr />
         <table class="table table-light table-bordered table-hover">
             <thead>
                 <tr>
                     <th>User Id</th>
                     <th>User Name</th>
-                    <th>User Email</th>
                     <th>User Phone</th>
+                    <th>User Email</th>
+                    <th>User Password</th>
+                    @*<th>Role</th>*@
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
@@ -32,8 +40,10 @@
                     <tr>
                         <td>@user.UserId</td>
                         <td>@user.UserName</td>
-                        <td>@user.Email</td>
                         <td>@user.Phone</td>
+                        <td>@user.Email</td>
+                        <td>@user.Password</td>
+                        @*<td>@user.Role</td>*@
                         <td><a asp-controller="User" asp-action="EditUser" asp-route-UserId="@user.UserId">Edit</a></td>
                         <td><a asp-controller="User" asp-action="DeleteUser" asp-route-UserId="@user.UserId">Delete</a></td>
                     </tr>

@@ -1,11 +1,13 @@
 ﻿using BookMyShowBusiness.Services;
 using BookMyShowEntity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
 namespace MovieAppCoreAPI.Controllers
 {
+    
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
@@ -43,6 +45,23 @@ namespace MovieAppCoreAPI.Controllers
         public User GetUserById(int userId)
         {
             return _userServices.UserById(userId);
+        }
+
+        [HttpPost("Register")]
+        public IActionResult Register([FromBody] User user)
+        {
+            _userServices.Register(user);
+            return Ok("User registered successfully");
+        }
+
+        [HttpPost("Login")]
+        public IActionResult Login([FromBody] User user)
+        {
+            User user1=_userServices.Login(user);
+            if (user1 != null)
+                return Ok("Login Success");
+            else
+                return NotFound();
         }
     }
 }

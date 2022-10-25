@@ -1,8 +1,10 @@
 ﻿using BookMyShowEntity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.IO;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,28 +39,46 @@ namespace MovieCoreMvcUI.Controllers
         }
         public IActionResult MovieEntry()
         {
+            List<SelectListItem> language = new List<SelectListItem>()
+            {
+                new SelectListItem{Value="Select",Text="select"},
+                new SelectListItem{Value="Hindi",Text="Hindi"},
+                new SelectListItem{Value="Tamil",Text="Tamil"},
+                new SelectListItem{Value="English",Text="English"},
+                new SelectListItem{Value="Kannada",Text="Kannada"},
+            };
+            ViewBag.languagelist = language;
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> MovieEntry(Movie movie)
         {
-            ViewBag.Status = "";
-            using (HttpClient client = new HttpClient())
+            if (ModelState.IsValid)
             {
-                StringContent content = new StringContent(JsonConvert.SerializeObject(movie), Encoding.UTF8, "application/json");
-                string endPoint = _configuration["WebApiBaseUrl"] + "Movie/AddMovie";
-                using (var response = await client.PostAsync(endPoint, content))
+                ViewBag.Status = "";
+                if (Request.Form.Files.Count > 0)
                 {
-                    if(response.StatusCode==System.Net.HttpStatusCode.OK)
+                    MemoryStream ms = new MemoryStream();
+                    Request.Form.Files[0].CopyTo(ms);
+                    movie.ImgPoster = ms.ToArray();
+                }
+                using (HttpClient client = new HttpClient())
+                {
+                    StringContent content = new StringContent(JsonConvert.SerializeObject(movie), Encoding.UTF8, "application/json");
+                    string endPoint = _configuration["WebApiBaseUrl"] + "Movie/AddMovie";
+                    using (var response = await client.PostAsync(endPoint, content))
                     {
-                        ViewBag.status = "Ok";
-                        ViewBag.message = "Movie Details Saved Successfully";
-                    }
-                    else
-                    {
-                        ViewBag.status = "Error";
-                        ViewBag.message = "Wrong Entries";
+                        if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                        {
+                            ViewBag.status = "Ok";
+                            ViewBag.message = "Movie Details Saved Successfully";
+                        }
+                        else
+                        {
+                            ViewBag.status = "Error";
+                            ViewBag.message = "Wrong Entries";
+                        }
                     }
                 }
             }
@@ -68,6 +88,15 @@ namespace MovieCoreMvcUI.Controllers
         public async Task<IActionResult> EditMovie(int movieId)
         {
            Movie movie = null;
+            List<SelectListItem> language = new List<SelectListItem>()
+            {
+                new SelectListItem{Value="Select",Text="select"},
+                new SelectListItem{Value="Hindi",Text="Hindi"},
+                new SelectListItem{Value="Tamil",Text="Tamil"},
+                new SelectListItem{Value="English",Text="English"},
+                new SelectListItem{Value="Kannada",Text="Kannada"},
+            };
+            ViewBag.languagelist = language;
             using (HttpClient client = new HttpClient())
             {
                 string endPoint = _configuration["WebApiBaseUrl"] + "Movie/GetMovieById?movieId="+movieId;
@@ -87,6 +116,12 @@ namespace MovieCoreMvcUI.Controllers
         public async Task<IActionResult> EditMovie(Movie movie)
         {
             ViewBag.Status = "";
+            if (Request.Form.Files.Count > 0)
+            {
+                MemoryStream ms = new MemoryStream();
+                Request.Form.Files[0].CopyTo(ms);
+                movie.ImgPoster = ms.ToArray();
+            }
             using (HttpClient client = new HttpClient())
             {
                 StringContent content = new StringContent(JsonConvert.SerializeObject(movie), Encoding.UTF8, "application/json");

@@ -6,7 +6,7 @@
 
 <div>
     <a asp-controller="Movie" asp-action="Index">Back to Index</a>
-    <center><h1>Welcome to Movie Entry</h1></center>
+    <center><h1 style="font-family:Algerian;">Welcome to Movie Entry</h1></center>
     <hr />
 </div>
 
@@ -14,8 +14,8 @@
   
     <div class="form-group">
         <label>Movie Name</label>
-        <input type="text" asp-for="Name" class="form-control" placeholder="Enter Movie Name" required/>
-
+        <input type="text" asp-for="Name" class="form-control" placeholder="Enter Movie Name" />
+        @Html.ValidationMessageFor(obj=>obj.Name)
     </div>
     <div class="form-group">
         <label>Movie Description</label>
@@ -26,6 +26,14 @@
         <label>Movie Type</label>
         <input type="text" asp-for="MovieType" class="form-control" placeholder="Enter Movie Type" required />
 
+    </div>
+    <div class="form-group">
+        <label>Movie Language</label>
+        <select asp-for="MovieLanguage" asp-items="@ViewBag.languagelist"></select>
+    </div>
+    <div class="form-group">
+        <label>Movie Poster</label>
+        <input type="file" id="poster" name="poster" class="form-control" required />
     </div>
     <input type="submit" value="Save" class="btn btn-outline-success"/> 
     <input type="button" value="Reset" class="btn btn-outline-secondary" />
